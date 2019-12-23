@@ -1,0 +1,131 @@
+$border-color: rgba(0, 0, 0, 0.15);
+
+.dejourn-view {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(to right top, #fafafa, #fafbfc, #f9fdfe, #f9fefc, #fdfff9);
+	overflow: auto;
+
+	.dejourn-sidenav {
+		width: 260px;
+		height: 100%;
+		background: red;
+	}
+
+	.dejourn-sidenav-container {
+		width: calc(100% - 260px);
+		background: green;
+	}
+
+	.dejourn-toolbar {
+		height: 60px;
+		width: 100%;
+		background: #fff;
+    	border-bottom: 1px solid $border-color;
+	}
+
+	.dejourn-sidenav-content {
+		height: calc(100% - 60px);
+		width: 100%;
+		background: #fafafa;
+		display: flex;
+		flex-direction: row;
+	}
+
+	.user-status {
+		width: 40%;
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 4px 0 8px;
+
+		.chat-title {
+			font-size: 1.2em;
+		}
+
+		.chat-desc {
+			display: flex;
+			flex-direction: row;
+			padding-top: 2px;
+
+			i {
+				font-size: .75em;
+			}
+
+			span.desc-row {
+				margin: 0 4px 0 0;
+				border-right: 1px solid $border-color;
+				padding: 0 4px 0 0;
+				color: rgba(0, 0, 0, 0.50);
+				font-size: 0.85em;
+				display: flex;
+				align-items: center;
+
+				&:last-child {
+					border-right: unset;
+				}
+
+				.round {
+					height: 10px;
+					width: 10px;
+					display: inline-block;
+					border-radius: 100%;
+					background: green;
+					margin: 0 2px;
+				}
+
+				.desc-status {
+					line-height: 1;
+				}
+			}
+		}
+	}
+
+	.dejourn-messages {
+		height: calc(100% - 85px);
+		width: 100%;
+	}
+
+	.dejourn-message-box {
+		height: 85px;
+		border-top: 1px solid $border-color;
+		padding: 20px 37px 20px 20px;
+	}
+
+	.dejourn-messages-container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.dejourn-thread {
+		width: 40%;
+		height: 100%;
+		border-left: 1px solid $border-color;
+
+		.dejourn-toolbar {
+			background: rgba(241, 241, 241, 0.88);
+		}
+	}
+
+	textarea {
+		width: 100%;
+		height: 100%;
+		border-radius: 3px;
+		border-color: $border-color;
+		padding: 6px 6px 6px 12px;
+		resize: none;
+		font-size: 1em;
+	}
+
+	.thread-content {
+		height: calc(100% - 165px);
+	}
+
+	.thread-message-box {
+		height: 85px;
+	}
+}
