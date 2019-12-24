@@ -86,12 +86,13 @@ $border-color: rgba(0, 0, 0, 0.15);
 	.dejourn-messages {
 		height: calc(100% - 85px);
 		width: 100%;
+		overflow: auto;
 	}
 
 	.dejourn-message-box {
 		height: 85px;
 		border-top: 1px solid $border-color;
-		padding: 20px 37px 20px 20px;
+		padding: 20px 35px;
 	}
 
 	.dejourn-messages-container {
@@ -102,7 +103,7 @@ $border-color: rgba(0, 0, 0, 0.15);
 	}
 
 	.dejourn-thread {
-		width: 40%;
+		width: 50%;
 		height: 100%;
 		border-left: 1px solid $border-color;
 
@@ -119,6 +120,12 @@ $border-color: rgba(0, 0, 0, 0.15);
 		padding: 6px 6px 6px 12px;
 		resize: none;
 		font-size: 1em;
+		box-sizing: border-box;
+		color: rgba(0, 0, 0, 0.68);
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	.thread-content {
