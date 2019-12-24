@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { AuthService } from './auth/auth.service';
+import { LocalstoreService } from './storage/localstore.service';
 
 @NgModule({
 	declarations: [],
@@ -8,7 +10,9 @@ import { AuthGuard } from './guards/auth/auth.guard';
 		CommonModule
 	],
 	providers: [
-		AuthGuard
+		AuthGuard,
+		AuthService,
+		LocalstoreService
 	]
 })
 export class CoreModule { }
