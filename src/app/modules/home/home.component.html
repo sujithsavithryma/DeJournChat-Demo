@@ -3,7 +3,7 @@
 	<div class="dejourn-sidenav-container">
 		<div class="dejourn-toolbar">
 			<div class="user-status">
-				<div class="chat-title" (click)="openThread = !openThread">{{ user?.email }}</div>
+				<div class="chat-title">{{ user?.email }}</div>
 				<div class="chat-desc">
 					<span class="desc-row">
 						<i class="fa fa-star"></i>
@@ -21,6 +21,36 @@
 		<div class="dejourn-sidenav-content">
 			<div class="dejourn-messages-container">
 				<div class="dejourn-messages">
+
+					<div class="default-message message">
+						<div class="message-head">
+							<img src="../../../assets/imgs/avatar.png" class="avatar-lg">
+							<div class="user-details">
+								<h4>lihkj <span class="round active"></span></h4>
+								<h6>lihkj</h6>
+							</div>
+
+						</div>
+						<div class="message-content">
+							<p>
+								<span class="highlight">
+									This is your space.
+								</span>
+								Draft messages, make to-do listsor keep links and files to hand. You can also talk to yourself here, but please bear in
+								mind you'll have to provide both sides of the conversation.
+
+							</p>
+						</div>
+					</div>
+
+					<div class="">
+						<ng-container *ngFor="let msg of messages">
+							<app-message
+								[message]="msg"
+								(reply)="openThread = !openThread">
+							</app-message>
+						</ng-container>
+					</div>
 
 				</div>
 				<div class="dejourn-message-box">

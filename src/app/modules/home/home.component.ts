@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
 	openThread = false;
 	user;
+	messages = MESSAGES;
 	constructor(
 		private auth: AuthService
 	) { }
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
 export interface Message {
 	id: number;
 	fromUserId: number;
+	user: string;
 	thumbnail: string;
 	date: string;
 	toUserId: number;
@@ -36,8 +38,9 @@ const MESSAGES: Message[] = [
 	{
 		id: 1,
 		fromUserId: 1,
+		user: 'Sujith',
 		thumbnail: '',
-		date: '',
+		date: '12-12-19',
 		toUserId: 1,
 		message: 'hghbhbh'
 	}
