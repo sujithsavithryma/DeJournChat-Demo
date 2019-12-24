@@ -15,7 +15,8 @@ export class AuthService {
 
 	login(email: string) {
 		const user = {
-			email
+			email,
+			id: Math.round(Math.random())
 		};
 		const token = Math.random().toString(36).substring(7);
 		this.store.token = token;
@@ -29,5 +30,9 @@ export class AuthService {
 
 	logout() {
 		this.store.reset();
+	}
+
+	get user() {
+		return this.store.user;
 	}
 }

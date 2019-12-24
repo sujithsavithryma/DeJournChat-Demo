@@ -3,7 +3,7 @@
 	<div class="dejourn-sidenav-container">
 		<div class="dejourn-toolbar">
 			<div class="user-status">
-				<div class="chat-title" (click)="openThread = !openThread">Sujith M A</div>
+				<div class="chat-title" (click)="openThread = !openThread">{{ user?.email }}</div>
 				<div class="chat-desc">
 					<span class="desc-row">
 						<i class="fa fa-star"></i>
@@ -13,14 +13,16 @@
 						<span class="desc-status">active</span>
 					</span>
 					<span class="desc-row">
-						Sujith M A
+						{{ user?.email }}
 					</span>
 				</div>
 			</div>
 		</div>
 		<div class="dejourn-sidenav-content">
 			<div class="dejourn-messages-container">
-				<div class="dejourn-messages"></div>
+				<div class="dejourn-messages">
+
+				</div>
 				<div class="dejourn-message-box">
 					<textarea></textarea>
 				</div>
