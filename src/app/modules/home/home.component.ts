@@ -92,6 +92,7 @@ export class HomeComponent implements OnInit {
 
 			const index = this.messages.findIndex(mes => mes.id === msg.id);
 			if (index !== -1) {
+				// tslint:disable-next-line:no-string-literal
 				this.messages[index].replies ? this.messages[index].replies.push(message) : this.messages[index]['replies'] = [message];
 				this.messages = this.messages.slice(0);
 				this.homeService.saveMessages(this.messages);
