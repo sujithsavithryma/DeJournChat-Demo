@@ -1,0 +1,64 @@
+.message-container {
+	margin: 10px 0;
+}
+
+.message-main {
+	display: flex;
+	padding: 10px 40px 10px 15px;
+	background: #e0e1e6;
+	position: relative;
+	margin: 10px 0;
+
+	&:hover {
+		.actions {
+			display: flex;
+			cursor: pointer;
+		}
+	}
+}
+
+.avatar {
+	height: 30px;
+	background: red;
+	padding: 1px;
+}
+
+.message-body {
+	padding-left: 5px;
+}
+
+.timestamp {
+	font-size: .7em;
+}
+
+.actions {
+	position: absolute;
+    right: 42px;
+    top: -10px;
+    width: 39px;
+    height: 18px;
+    border: 1px solid #a6a5a5;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    color: #605c5c;
+    justify-content: center;
+	background: #fcfbf8;
+
+	display: none;
+	&:hover {
+		display: flex;
+	}
+}
+
+.replies {
+	display: flex;
+    align-items: center;
+	padding-left: 30px;
+
+	.avatar {
+		height: 20px;
+		background: red;
+		padding: 1px;
+	}
+}

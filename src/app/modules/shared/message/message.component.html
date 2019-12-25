@@ -1,0 +1,27 @@
+<div class="message-container">
+	<div class="message-main">
+		<img src="../../../assets/imgs/avatar.png" class="avatar">
+		<div class="message-body">
+			<h4 class="title">
+				{{ message?.user }}
+				<span class="timestamp">{{ message?.date }}</span>
+			</h4>
+			<h6 class="title">
+				{{ message?.message }}
+			</h6>
+		</div>
+		<div class="actions"
+			(click)="reply.emit()"
+			*ngIf="enableReply">
+			<i class="fa fa-commenting"></i>
+		</div>
+	</div>
+
+	<div class="replies"
+		*ngIf="message?.replies?.length > 0 && enableReply">
+		<img src="../../../assets/imgs/avatar.png" class="avatar">
+		<h6>
+			{{ message?.replies?.length === 1 ? '1 reply' : message?.replies?.length + 'replies'}}
+		</h6>
+	</div>
+</div>

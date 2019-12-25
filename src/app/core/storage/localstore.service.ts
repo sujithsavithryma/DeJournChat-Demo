@@ -44,6 +44,29 @@ export class LocalstoreService {
 		return this.getFromStore('user') ? JSON.parse(this.getFromStore('user')) : null;
 	}
 
+	set messages(messages) {
+		let id;
+		messages.map((msg) => {
+			if (!id) {
+				id = msg.id;
+				return;
+			}
+			if (msg.id > id) {
+				id = msg.id;
+			}
+		});
+		this.saveInStore('lastId', id.toString());
+		this.saveInStore('messages', JSON.stringify(messages));
+	}
+
+	get messages(): any[] {
+		return this.getFromStore('messages') ? JSON.parse(this.getFromStore('messages')) : [];
+	}
+
+	get lastId() {
+		return this.getFromStore('lastId') ? Number(this.getFromStore('lastId')) : undefined;
+	}
+
 	reset() {
 		localStorage.clear();
 	}

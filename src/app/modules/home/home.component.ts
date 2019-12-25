@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { FormControl } from '@angular/forms';
-
-let id = 0;
-
+import { HomeService } from './home.service';
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -13,7 +11,7 @@ export class HomeComponent implements OnInit {
 
 	openThread = false;
 	user;
-	messages = MESSAGES;
+	messages: Message[] = [];
 	selectedMsg;
 
 	message: FormControl = new FormControl();
@@ -30,10 +28,12 @@ export class HomeComponent implements OnInit {
 
 	constructor(
 		private auth: AuthService,
+		private homeService: HomeService
 	) { }
 
 	ngOnInit() {
 		this.user = this.auth.user;
+		this.messages = this.homeService.getMessages();
 	}
 
 	send(event) {
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 		}
 		if (!this.keyCodes.shiftkey && this.keyCodes.enterkey && this.message.value !== null && this.message.value !== '') {
 			const message: Message = {
-				id: ++id,
+				id: this.homeService.getUniqueId(),
 				fromUserId: this.user.id,
 				user: this.user.email,
 				thumbnail: '',
@@ -56,6 +56,8 @@ export class HomeComponent implements OnInit {
 
 			this.messages.push(message);
 			this.message.setValue('');
+
+			this.homeService.saveMessages(this.messages);
 
 			this.messageTextAreaRef.nativeElement.focus();
 			setTimeout(() => {
@@ -79,7 +81,7 @@ export class HomeComponent implements OnInit {
 		}
 		if (!this.keyCodes.shiftkey && this.keyCodes.enterkey && this.replyMessage.value !== null && this.replyMessage.value !== '') {
 			const message: Message = {
-				id: ++id,
+				id: this.homeService.getUniqueId(),
 				fromUserId: this.user.id,
 				user: this.user.email,
 				thumbnail: '',
@@ -92,11 +94,11 @@ export class HomeComponent implements OnInit {
 			if (index !== -1) {
 				this.messages[index].replies ? this.messages[index].replies.push(message) : this.messages[index]['replies'] = [message];
 				this.messages = this.messages.slice(0);
+				this.homeService.saveMessages(this.messages);
 			}
 			this.replyMessage.setValue('');
 			event.preventDefault();
 
-			// this.messageTextAreaRef.nativeElement.focus();
 			setTimeout(() => {
 				this.replyMessagesRef.nativeElement.scrollTop = this.replyMessagesRef.nativeElement.scrollHeight;
 			}, 10);
@@ -123,14 +125,3 @@ export interface Message {
 	message: string;
 }
 
-const MESSAGES: Message[] = [
-	{
-		id: 1,
-		fromUserId: 1,
-		user: 'Sujith',
-		thumbnail: '',
-		date: '12-12-19',
-		toUserId: 1,
-		message: 'hghbhbh'
-	}
-];
