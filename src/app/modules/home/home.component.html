@@ -47,23 +47,35 @@
 						<ng-container *ngFor="let msg of messages">
 							<app-message
 								[message]="msg"
-								(reply)="openThread = !openThread">
+								(reply)="startThread(msg)">
 							</app-message>
 						</ng-container>
 					</div>
 
 				</div>
 				<div class="dejourn-message-box">
-					<textarea></textarea>
+					<textarea (keyup)="send($event)"></textarea>
 				</div>
 			</div>
 			<div class="dejourn-thread"
 				*ngIf="openThread">
-				<div class="dejourn-toolbar"></div>
+				<div class="dejourn-toolbar">
+					<div class="user-status">
+						<div class="chat-title">Thread</div>
+						<div class="chat-desc">
+							<span class="desc-row">
+								{{ selectedMsg?.user }}
+							</span>
+						</div>
+					</div>
+					<span class="close">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</span>
+				</div>
 
 				<div class="thread-content"></div>
 				<div class="thread-message-box">
-					<textarea></textarea>
+					<textarea (keyup)="send($event)"></textarea>
 				</div>
 			</div>
 		</div>
