@@ -20,7 +20,9 @@
 		</div>
 		<div class="dejourn-sidenav-content">
 			<div class="dejourn-messages-container">
-				<div class="dejourn-messages">
+				<div class="dejourn-messages"
+					#messagesRef
+					id="messagesRef">
 
 					<div class="default-message message">
 						<div class="message-head">
@@ -46,6 +48,7 @@
 					<div class="">
 						<ng-container *ngFor="let msg of messages">
 							<app-message
+								data-enableReply="true"
 								[message]="msg"
 								(reply)="startThread(msg)">
 							</app-message>
@@ -55,8 +58,10 @@
 				</div>
 				<div class="dejourn-message-box">
 					<textarea
+						#messageTextAreaRef
+						(keydown)="send($event)"
+						(keyup)="resetKey()"
 						placeholder="Make a note of something"
-						(keyup)="send($event)"
 						[formControl]="message">
 					</textarea>
 				</div>
@@ -72,18 +77,39 @@
 							</span>
 						</div>
 					</div>
-					<span class="close">
+					<span class="close"
+						(click)="openThread = false">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</span>
 				</div>
 
-				<div class="thread-content">
+				<div class="thread-content"
+					#replyMessagesRef>
 					<app-message
 						[message]="selectedMsg">
 					</app-message>
+					<div class="replies"
+						*ngIf="selectedMsg?.replies?.length > 0">
+						<div class="reply-length">
+							<span>
+								{{ selectedMsg?.replies?.length === 1 ? '1 reply' : selectedMsg?.replies?.length + 'replies'}}
+							</span>
+						</div>
+						<ng-container
+							*ngFor="let rply of selectedMsg.replies">
+							<app-message
+								[message]="rply">
+							</app-message>
+						</ng-container>
+					</div>
 				</div>
 				<div class="thread-message-box">
-					<textarea (keyup)="send($event)"></textarea>
+					<textarea
+						placeholder="Reply"
+						(keydown)="reply($event, selectedMsg)"
+						(keyup)="resetKey()"
+						[formControl]="replyMessage">
+					</textarea>
 				</div>
 			</div>
 		</div>

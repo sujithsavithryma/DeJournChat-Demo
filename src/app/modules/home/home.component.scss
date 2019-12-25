@@ -75,12 +75,10 @@ $border-color: rgba(0, 0, 0, 0.15);
 	}
 
 	.dejourn-messages {
-		height: calc(100% - 85px);
-		width: 100%;
+		flex: 1;
 		overflow: auto;
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-end;
 	}
 
 	.dejourn-message-box {
@@ -116,7 +114,7 @@ $border-color: rgba(0, 0, 0, 0.15);
 
 	textarea {
 		width: 100%;
-		height: 100%;
+		height: 75px;
 		border-radius: 3px;
 		border-color: $border-color;
 		padding: 6px 6px 6px 12px;
@@ -131,11 +129,13 @@ $border-color: rgba(0, 0, 0, 0.15);
 	}
 
 	.thread-content {
-		height: calc(100% - 165px);
+		max-height: calc(100% - 200px);
+    	overflow: auto;
 	}
 
 	.thread-message-box {
 		height: 85px;
+		padding: 12px 21px;
 	}
 
 	.message-head {
@@ -160,6 +160,7 @@ $border-color: rgba(0, 0, 0, 0.15);
 
 	.message {
 		padding: 0 40px 0 15px;
+		margin-top: auto;
 	}
 
 	.message-content {
@@ -188,5 +189,32 @@ $border-color: rgba(0, 0, 0, 0.15);
 		height: 40px;
 		background: red;
 		padding: 1px;
+	}
+}
+
+.replies {
+	position: relative;
+	padding-top: 10px;
+    margin-top: 20px;
+	&::before {
+		content: '';
+		width: 100%;
+		border-top: 1px solid blue;
+		position: absolute;
+		top: 0;
+	}
+
+	.reply-length {
+		position: absolute;
+		top: -10px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		z-index: 1;
+
+		span {
+			background: #fafafa;
+    		padding: 0 7px;
+		}
 	}
 }
