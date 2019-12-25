@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
 	}
 
 	login() {
-		this.auth.login(this.email.value);
+		if (this.email.value !== null && this.email.value !== '') {
+			this.auth.login(this.email.value);
+		}
 	}
 
 }

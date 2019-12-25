@@ -1,3 +1,13 @@
-<p>login works!</p>
-<input type="email" [formControl]="email">
-<button (click)="login()">Login</button>
+<div class="login-wrapper">
+	<div class="login">
+		<div class="dejourn-logo">
+			DeJourn
+		</div>
+		<input type="email"
+			placeholder="Enter you email to login"
+			[formControl]="email">
+		<button (click)="login()">
+			Login
+		</button>
+	</div>
+</div>
