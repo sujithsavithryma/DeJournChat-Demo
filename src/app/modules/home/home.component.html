@@ -54,7 +54,11 @@
 
 				</div>
 				<div class="dejourn-message-box">
-					<textarea (keyup)="send($event)"></textarea>
+					<textarea
+						placeholder="Make a note of something"
+						(keyup)="send($event)"
+						[formControl]="message">
+					</textarea>
 				</div>
 			</div>
 			<div class="dejourn-thread"
@@ -73,7 +77,11 @@
 					</span>
 				</div>
 
-				<div class="thread-content"></div>
+				<div class="thread-content">
+					<app-message
+						[message]="selectedMsg">
+					</app-message>
+				</div>
 				<div class="thread-message-box">
 					<textarea (keyup)="send($event)"></textarea>
 				</div>

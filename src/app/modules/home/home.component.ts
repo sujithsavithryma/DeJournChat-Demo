@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-home',
@@ -12,6 +13,9 @@ export class HomeComponent implements OnInit {
 	user;
 	messages = MESSAGES;
 	selectedMsg;
+
+	message: FormControl = new FormControl();
+
 	constructor(
 		private auth: AuthService
 	) { }
@@ -33,6 +37,7 @@ export class HomeComponent implements OnInit {
 			};
 
 			this.messages.push(message);
+			this.message.setValue('');
 		}
 	}
 
