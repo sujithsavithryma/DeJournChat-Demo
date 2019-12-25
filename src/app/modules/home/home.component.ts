@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
 			const message: Message = {
 				id: this.homeService.getUniqueId(),
 				fromUserId: this.user.id,
-				user: this.user.email,
+				user: this.user.username,
 				thumbnail: '',
 				date: new Date().toDateString(),
 				toUserId: this.user.id,
@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit {
 			const message: Message = {
 				id: this.homeService.getUniqueId(),
 				fromUserId: this.user.id,
-				user: this.user.email,
+				user: this.user.username,
 				thumbnail: '',
 				date: new Date().toDateString(),
 				toUserId: msg.fromUserId,

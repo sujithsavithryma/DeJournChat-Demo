@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-	email: FormControl = new FormControl();
+	username: FormControl = new FormControl();
 	constructor(
 		private auth: AuthService
 	) { }
@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
 	}
 
 	login() {
-		if (this.email.value !== null && this.email.value !== '') {
-			this.auth.login(this.email.value);
+		if (this.username.value !== null && this.username.value !== '') {
+			this.auth.login(this.username.value);
 		}
 	}
 

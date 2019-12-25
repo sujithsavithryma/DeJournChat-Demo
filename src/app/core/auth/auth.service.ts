@@ -13,9 +13,9 @@ export class AuthService {
 		private router: Router
 	) { }
 
-	login(email: string) {
+	login(username: string) {
 		const user = {
-			email,
+			username,
 			id: Math.round(Math.random())
 		};
 		const token = Math.random().toString(36).substring(7);

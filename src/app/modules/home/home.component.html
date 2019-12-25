@@ -4,14 +4,14 @@
 			<img src="../../../assets/imgs/avatar.png"
 				class="avatar-xl">
 			<span class="user-name">
-				{{ user?.email }}
+				{{ user?.username }}
 			</span>
 		</div>
 	</div>
 	<div class="dejourn-sidenav-container">
 		<div class="dejourn-toolbar">
 			<div class="user-status">
-				<div class="chat-title">{{ user?.email }}</div>
+				<div class="chat-title">{{ user?.username }}</div>
 				<div class="chat-desc">
 					<span class="desc-row">
 						<i class="fa fa-star"></i>
@@ -21,7 +21,7 @@
 						<span class="desc-status">active</span>
 					</span>
 					<span class="desc-row">
-						{{ user?.email }}
+						{{ user?.username }}
 					</span>
 				</div>
 			</div>
@@ -41,8 +41,8 @@
 						<div class="message-head">
 							<img src="../../../assets/imgs/avatar.png" class="avatar-lg">
 							<div class="user-details">
-								<h4>{{ user?.email }} <span class="round active"></span></h4>
-								<h6>{{ user?.email }}</h6>
+								<h4>{{ user?.username }} <span class="round active"></span></h4>
+								<h6>{{ user?.username }}</h6>
 							</div>
 
 						</div>
