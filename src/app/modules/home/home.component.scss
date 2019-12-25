@@ -16,7 +16,8 @@ $sidenav-head: #068d68;
 		background: $primary;
 
 		.user-info {
-			height: 150px;
+			min-height: 180px;
+			max-height: 240px;
 			width: 100%;
 			background: $sidenav-head;
 			display: flex;
@@ -29,9 +30,11 @@ $sidenav-head: #068d68;
 			}
 
 			.user-name {
-				padding: 4px 0;
+				padding: 4px 20px;
 				font-size: 1.3em;
 				color: white;
+				word-break: break-word;
+    			text-align: center;
 			}
 		}
 	}

@@ -18,10 +18,11 @@
 	</div>
 
 	<div class="replies"
+		(click)="reply.emit()"
 		*ngIf="message?.replies?.length > 0 && enableReply">
 		<img src="../../../assets/imgs/avatar.png" class="avatar">
 		<h6>
-			{{ message?.replies?.length === 1 ? '1 reply' : message?.replies?.length + 'replies'}}
+			{{ message?.replies?.length === 1 ? '1 Reply' : message?.replies?.length + ' Replies'}}
 		</h6>
 	</div>
 </div>
