@@ -28,8 +28,8 @@
 						<div class="message-head">
 							<img src="../../../assets/imgs/avatar.png" class="avatar-lg">
 							<div class="user-details">
-								<h4>lihkj <span class="round active"></span></h4>
-								<h6>lihkj</h6>
+								<h4>{{ user?.email }} <span class="round active"></span></h4>
+								<h6>{{ user?.email }}</h6>
 							</div>
 
 						</div>
@@ -92,7 +92,7 @@
 						*ngIf="selectedMsg?.replies?.length > 0">
 						<div class="reply-length">
 							<span>
-								{{ selectedMsg?.replies?.length === 1 ? '1 reply' : selectedMsg?.replies?.length + 'replies'}}
+								{{ selectedMsg?.replies?.length === 1 ? '1 reply' : selectedMsg?.replies?.length + ' replies'}}
 							</span>
 						</div>
 						<ng-container

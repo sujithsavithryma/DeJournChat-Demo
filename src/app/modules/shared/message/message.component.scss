@@ -1,3 +1,5 @@
+$primary: #0bbe8d;
+
 .message-container {
 	margin: 10px 0;
 }
@@ -19,7 +21,7 @@
 
 .avatar {
 	height: 30px;
-	background: red;
+	background: $primary;
 	padding: 1px;
 }
 
@@ -56,9 +58,13 @@
     align-items: center;
 	padding-left: 30px;
 
+	h6 {
+		margin-left: 4px;
+	}
+
 	.avatar {
 		height: 20px;
-		background: red;
+		background: #0bbe8d;
 		padding: 1px;
 	}
 }

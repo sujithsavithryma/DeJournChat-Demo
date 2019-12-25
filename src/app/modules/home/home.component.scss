@@ -1,4 +1,6 @@
 $border-color: rgba(0, 0, 0, 0.15);
+$offwhite:  rgba(0, 0, 0, 0.50);
+$primary: #0bbe8d;
 
 .dejourn-view {
 	display: flex;
@@ -8,14 +10,13 @@ $border-color: rgba(0, 0, 0, 0.15);
 	overflow: auto;
 
 	.dejourn-sidenav {
-		width: 260px;
+		width: 200px;
 		height: 100%;
-		background: red;
+		background: $primary;
 	}
 
 	.dejourn-sidenav-container {
-		width: calc(100% - 260px);
-		background: green;
+		width: calc(100% - 200px);
 	}
 
 	.dejourn-toolbar {
@@ -58,7 +59,7 @@ $border-color: rgba(0, 0, 0, 0.15);
 				margin: 0 4px 0 0;
 				border-right: 1px solid $border-color;
 				padding: 0 4px 0 0;
-				color: rgba(0, 0, 0, 0.50);
+				color: $offwhite;
 				font-size: 0.85em;
 				display: flex;
 				align-items: center;
@@ -107,7 +108,8 @@ $border-color: rgba(0, 0, 0, 0.15);
 			justify-content: space-between;
 
 			.close {
-				padding-right: 12px
+				padding-right: 12px;
+				cursor: pointer;
 			}
 		}
 	}
@@ -187,7 +189,7 @@ $border-color: rgba(0, 0, 0, 0.15);
 
 	.avatar-lg {
 		height: 40px;
-		background: red;
+		background: $primary;
 		padding: 1px;
 	}
 }
@@ -199,9 +201,10 @@ $border-color: rgba(0, 0, 0, 0.15);
 	&::before {
 		content: '';
 		width: 100%;
-		border-top: 1px solid blue;
+		border-top: 1px solid $border-color;
 		position: absolute;
 		top: 0;
+		color: $offwhite;
 	}
 
 	.reply-length {
@@ -214,7 +217,12 @@ $border-color: rgba(0, 0, 0, 0.15);
 
 		span {
 			background: #fafafa;
-    		padding: 0 7px;
+			padding: 0 7px;
+			color: $offwhite;
 		}
+	}
+
+	h6 {
+		margin-left: 4px;
 	}
 }
