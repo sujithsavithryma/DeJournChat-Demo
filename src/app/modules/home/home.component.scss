@@ -1,6 +1,7 @@
 $border-color: rgba(0, 0, 0, 0.15);
 $offwhite:  rgba(0, 0, 0, 0.50);
 $primary: #0bbe8d;
+$sidenav-head: #068d68;
 
 .dejourn-view {
 	display: flex;
@@ -13,6 +14,26 @@ $primary: #0bbe8d;
 		width: 200px;
 		height: 100%;
 		background: $primary;
+
+		.user-info {
+			height: 150px;
+			width: 100%;
+			background: $sidenav-head;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+
+			.avatar-xl {
+				height: 100px;
+			}
+
+			.user-name {
+				padding: 4px 0;
+				font-size: 1.3em;
+				color: white;
+			}
+		}
 	}
 
 	.dejourn-sidenav-container {
@@ -23,7 +44,15 @@ $primary: #0bbe8d;
 		height: 60px;
 		width: 100%;
 		background: #fff;
-    	border-bottom: 1px solid $border-color;
+		border-bottom: 1px solid $border-color;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		.close {
+			padding: 26px 13px;
+			cursor: pointer;
+		}
 	}
 
 	.dejourn-sidenav-content {

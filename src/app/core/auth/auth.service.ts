@@ -30,6 +30,7 @@ export class AuthService {
 
 	logout() {
 		this.store.reset();
+		this.router.navigateByUrl('login');
 	}
 
 	get user() {

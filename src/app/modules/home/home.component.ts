@@ -110,6 +110,10 @@ export class HomeComponent implements OnInit {
 		this.keyCodes.enterkey = false;
 	}
 
+	logout() {
+		this.auth.logout();
+	}
+
 }
 
 

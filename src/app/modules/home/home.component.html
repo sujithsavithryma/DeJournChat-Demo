@@ -1,5 +1,13 @@
 <div class="dejourn-view">
-	<div class="dejourn-sidenav"></div>
+	<div class="dejourn-sidenav">
+		<div class="user-info">
+			<img src="../../../assets/imgs/avatar.png"
+				class="avatar-xl">
+			<span class="user-name">
+				{{ user?.email }}
+			</span>
+		</div>
+	</div>
 	<div class="dejourn-sidenav-container">
 		<div class="dejourn-toolbar">
 			<div class="user-status">
@@ -16,6 +24,11 @@
 						{{ user?.email }}
 					</span>
 				</div>
+			</div>
+			<div class="close"
+				(click)="logout()">
+				<i class="fa fa-sign-out" aria-hidden="true"></i>
+				Logout
 			</div>
 		</div>
 		<div class="dejourn-sidenav-content">
